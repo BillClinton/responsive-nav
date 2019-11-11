@@ -1,0 +1,117 @@
+$header-height: 60px;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: $header-height;
+}
+
+header {
+  color: #fff;
+  background-color: #000;
+  overflow: visible;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .inner-wrap {
+    max-width: 1280px;
+    height: $header-height;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 1em;
+    overflow: visible;
+  }
+
+  .brand {
+    display: flex;
+
+    h1 {
+      align-self: center;
+      font-size: 2em;
+      display: inline-block;
+      padding: 0 0 0 16px;
+    }
+    svg.logo {
+      align-self: center;
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  nav {
+    align-self: center;
+    display: flex;
+    justify-content: space-around;
+    transition: all 400ms;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 2px 16px;
+      display: inline-block;
+      vertical-align: middle;
+
+      @media screen and (max-width: 678px) {
+        text-align: center;
+      }
+    }
+    a:active,
+    a:hover,
+    a:visited {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 678px) {
+      margin: 0;
+      background-color: #333;
+      position: absolute;
+      top: $header-height;
+      right: -100%;
+      width: 50%;
+      height: calc(100vh - #{$header-height});
+      flex-direction: column;
+      padding: 0;
+    }
+  }
+
+  .nav-active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: none;
+
+    svg {
+      width: 36px;
+      height: 36px;
+      align-self: center;
+      display: block;
+    }
+    svg.menu-close {
+      display: none;
+    }
+
+    @media screen and (max-width: 678px) {
+      display: flex;
+    }
+  }
+
+  .menu-toggle-active {
+    svg.menu-open {
+      display: none;
+    }
+    svg.menu-close {
+      display: block;
+    }
+  }
+}
